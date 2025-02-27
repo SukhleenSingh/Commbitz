@@ -1,70 +1,63 @@
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Globe, Zap, Shield, Coins } from 'lucide-react';
-
-const features = [
-  {
-    icon: <Globe className="w-8 h-8" />,
-    title: "Global Coverage",
-    description: "Stay connected in 190+ countries worldwide with our reliable network coverage"
-  },
-  {
-    icon: <Zap className="w-8 h-8" />,
-    title: "Instant Activation",
-    description: "Get connected immediately with our quick and easy eSIM activation process"
-  },
-  {
-    icon: <Shield className="w-8 h-8" />,
-    title: "Secure Connection",
-    description: "Enhanced security features to keep your data safe while you travel"
-  },
-  {
-    icon: <Coins className="w-8 h-8" />,
-    title: "Cost-Effective",
-    description: "Save on roaming charges with our competitive international data plans"
-  }
-];
+import Business from "./business.png";
+import Apn from "./apn.png";
+import ET from "./et.png";
+import communication from "./communication.png";
+import startup from "./startup.png";
+import telecom from "./Telecom.png";
 
 const Features = () => {
-  return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl font-bold text-secondary mb-4">
-            Why Choose Our eSIM?
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Experience seamless connectivity with our innovative eSIM solutions
-          </p>
-        </motion.div>
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    arrows: false, // Hide arrows for a cleaner look
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
+  };
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="bg-white p-6 rounded-2xl shadow-lg text-center"
-            >
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6">
-                {feature.icon}
+  const logos = [Business, Apn, ET, communication, startup, telecom];
+
+  return (
+    <section className="partner-slider bg-[#19272f] py-20 px-20">
+      <div className="container mx-auto px-6">
+        <p className="text-white text-2xl">News</p>
+        <h1 className="text-white text-4xl my-4 ">Feature Listing</h1>
+        <Slider {...settings}>
+          {logos.map((logo, index) => (
+            <div key={index} className="flex justify-center">
+              <div className="w-48 h-32 flex flex-col items-center justify-center border border-green-500 rounded-lg shadow-lg p-6 gap-4 ">
+                <img src={logo} alt={`Partner ${index + 1}`} className="w-auto h-16 object-contain" />
+                <h1 className="text-green-500">Learn More</h1>
               </div>
-              <h3 className="text-xl font-semibold text-secondary mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-gray-600">
-                {feature.description}
-              </p>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </Slider>
       </div>
     </section>
   );
