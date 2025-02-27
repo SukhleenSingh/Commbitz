@@ -61,7 +61,7 @@ function Signup() {
             <input
               type="text"
               placeholder="Enter your name"
-              className="w-full p-3 bg-[#121314] text-white border border-gray-700 rounded-md focus:outline-none focus:border-[#03fe9d]"
+              className="w-full p-4 bg-[#121314] text-white border border-gray-700 rounded-md focus:outline-none focus:border-[#03fe9d]"
             />
           </div>
 
