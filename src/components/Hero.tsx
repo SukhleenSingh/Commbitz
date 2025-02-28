@@ -70,7 +70,7 @@ const Hero = () => {
             transition={{ duration: 1 }}
             className="text-white max-w-lg text-left"
           >
-            <p className="text-lg text-gray-300 mb-2">
+            <p className="text-lg text-gray-300 mb-2" >
               Pioneering the World's 1st Early Stage<br /> Profitable eSIM Company
             </p>
             <h1 className="text-4xl md:text-6xl font-bold">

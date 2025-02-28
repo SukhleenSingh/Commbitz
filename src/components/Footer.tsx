@@ -1,9 +1,12 @@
+
 import React, { useEffect, useState } from "react";
-import {  FaLinkedin, FaInstagram, FaYoutube, FaFacebook } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import { FaLinkedin, FaInstagram, FaYoutube, FaFacebook } from "react-icons/fa";
 import Footerimg from './footerimg.png';
 import Combit from "./combit.webp";
 
 const Footer = () => {
+  const navigate = useNavigate(); // Hook for navigation
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
@@ -46,7 +49,7 @@ const Footer = () => {
         {/* Center Section - Popular Countries (Dynamic Flags) */}
         <div className="md:col-span-1 z-10">
           <h3 className="text-lg font-semibold mb-3">Popular Countries</h3>
-          <ul className="space-y-1">
+          <ul className="space-y-2">
             {countries.map((country, index) => (
               <li key={index} className="flex items-center space-x-2">
                 <img src={country.flag} alt={country.name} className="w-5 h-5 rounded-lg" />
@@ -56,16 +59,26 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Right Section - More Info */}
+        {/* Right Section - More Info with Navigation */}
         <div className="md:col-span-1 z-10">
           <h3 className="text-lg font-semibold mb-3">More Info</h3>
-          <ul className="space-y-1">
-            {["Contact", "Blogs", "FAQ's", "Troubleshoot"].map((item, index) => (
-              <li key={index} className="flex items-center space-x-2 ">
-                <span className="text-white ">&#9656;</span>
-                <span>{item}</span>
-              </li>
-            ))}
+          <ul className="space-y-2">
+            <li className="flex items-center space-x-2 cursor-pointer" onClick={() => navigate("/contact")}>
+              <span className="text-white">&#9656;</span>
+              <span className="hover:underline">Contact</span>
+            </li>
+            <li className="flex items-center space-x-2 cursor-pointer" onClick={() => navigate("/blog")}>
+              <span className="text-white">&#9656;</span>
+              <span className="hover:underline">Blogs</span>
+            </li>
+            <li className="flex items-center space-x-2 cursor-pointer" onClick={() => navigate("/faqs")}>
+              <span className="text-white">&#9656;</span>
+              <span className="hover:underline">FAQ's</span>
+            </li>
+            <li className="flex items-center space-x-2 cursor-pointer" onClick={() => navigate("/faqs")}>
+              <span className="text-white">&#9656;</span>
+              <span className="hover:underline">Troubleshoot</span>
+            </li>
           </ul>
         </div>
 
@@ -85,25 +98,31 @@ const Footer = () => {
 
       {/* Bottom Section */}
       <div className="flex justify-between items-center mt-6 pt-6 text-center">
-  {/* Left Section - Privacy Policy Links */}
-  <p className="text-white text-sm ml-16">
-    COMMBITZ 2025 All Rights Reserved | 
-    <a href="#" className="hover:underline ml-1">Privacy Policy</a> | 
-    <a href="#" className="hover:underline ml-1">Terms & Conditions</a> | 
-    <a href="#" className="hover:underline ml-1">Shipping Policy</a> | 
-    <a href="#" className="hover:underline ml-1">Refund Policy</a>
-  </p>
+        {/* Left Section - Privacy Policy Links */}
+        <p className="text-white text-[14px] ml-16">
+          COMMBITZ 2025 All Rights Reserved | 
+          <Link to="/privacypolicy" className="hover:underline ml-2">Privacy Policy</Link> | 
+          <Link to="/termsconditions" className="hover:underline ml-2">Terms & Conditions</Link> | 
+          <Link to="/shippingpolicy" className="hover:underline ml-2">Shipping Policy</Link> | 
+          <Link to="/refundpolicy" className="hover:underline ml-2">Refund Policy</Link>
+        </p>
 
-  {/* Right Section - Social Media Icons */}
-  <div className="flex space-x-6 mr-16">
-    
-    <FaLinkedin className="text-white text-2xl cursor-pointer" />
-    <FaInstagram className="text-white text-2xl cursor-pointer" />
-    <FaYoutube className="text-white text-2xl cursor-pointer" />
-    <FaFacebook className="text-white text-2xl cursor-pointer" />
-  </div>
-</div>
-
+        {/* Right Section - Social Media Icons */}
+        <div className="flex space-x-6 mr-16">
+          <Link to= 'https://www.linkedin.com/company/commbitz/'>
+          <FaLinkedin className="text-white text-2xl cursor-pointer" />
+          </Link>
+          <Link to ='https://www.instagram.com/commbitz_esim/?hl=en'>
+          <FaInstagram className="text-white text-2xl cursor-pointer" />
+          </Link>
+          <Link to='https://www.youtube.com/@Commbitz_esim'>
+          <FaYoutube className="text-white text-2xl cursor-pointer" />
+          </Link>
+          <Link to='https://www.facebook.com/commbizesim'>
+          <FaFacebook className="text-white text-2xl cursor-pointer" />
+          </Link>
+        </div>
+      </div>
     </footer>
   );
 };

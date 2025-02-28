@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Combit from "../components/combit.webp";
-import Bgimg from "../assets/bgimg.png";
+import Bgimg from "../assets/Images/bgimg.png";
 import { Link } from "react-router-dom";
 
 function Signup() {

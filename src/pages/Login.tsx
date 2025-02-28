@@ -2,8 +2,8 @@ import React from 'react'
 import { useState } from "react";
 import { Search } from "lucide-react";
 import Combit from '../components/combit.webp'
-import Bgimg from '../assets/bgimg.png'
-import Google from '../assets/Google.png'
+import Bgimg from '../assets/Images/bgimg.png'
+import Google from '../assets/Images/Google.png'
 import { Link } from 'react-router-dom';
 function Login() {
   return (

@@ -9,7 +9,7 @@ import Europe from './Europe.png';
 import Globall from './Global.png';
 import MiddleEast from './MiddleEast.png';
 import Oceania from './Oceania.png';
-
+import { useNavigate } from "react-router-dom";
 
 const destinations = [
   { name: "China", flag: "https://customsbuckets.s3.us-west-2.amazonaws.com/9dc8ff49-81c8-45d3-9174-e6fc4c681aac.png", image: "https://customsbuckets.s3.us-west-2.amazonaws.com/0389e3f5-9cf5-433d-87df-5a6357b145b2.png" },
@@ -47,6 +47,7 @@ const DestinationCard = ({ name, flag, image }: { name: string; flag?: string; i
 
 const EsimDestinations = () => {
   const [activeTab, setActiveTab] = useState("Popular Plans");
+  const navigate = useNavigate();
 
   const getDestinations = () => {
     if (activeTab === "Popular Plans") return destinations.slice(0, 6);
@@ -100,6 +101,16 @@ const EsimDestinations = () => {
           <DestinationCard key={index} {...dest} />
         ))}
       </div>
+      {activeTab === "Local eSIMs" && (
+      <div className="text-center mt-6">
+        <button 
+          className="px-6 py-3  text-white border border-white font-semibold rounded-md " 
+          onClick={() => navigate("/eSim")}
+        >
+          Load More
+        </button>
+      </div>
+      )}
     </section>
   );
 };

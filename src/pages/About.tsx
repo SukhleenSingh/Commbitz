@@ -62,9 +62,9 @@
 
 import React from 'react';
 import Navbar from '../components/Navbar';
-import Aboutus from '../assets/Aboutus.png';
+import Aboutus from '../assets/Images/Aboutus.png';
 import Footer from '@/components/Footer';
-import AboutMobile from '../assets/AboutMobile.png';
+import AboutMobile from '../assets/Images/AboutMobile.png';
 import Appstore from '../components/appstore.svg';
 import Playstore from '../components/playstore.svg';
 import Combit from '../components/combit.webp';

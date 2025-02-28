@@ -35,8 +35,8 @@ function Reviews() {
 
   return (
     <div className="bg-[#19272f] text-white px-10 py-16">
-      <h4 className="text-lg text-gray-400 mb-2">Reviews</h4>
-      <h2 className="text-4xl font-bold mb-10">Explore Commitz: See What Users Say</h2>
+      <h4 className="text-lg text-white mb-2">Reviews</h4>
+      <h2 className="text-5xl font-semibold mb-10">Explore Commitz: See What Users Say</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {reviews.map((review, index) => (
